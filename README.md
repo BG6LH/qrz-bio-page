@@ -1,6 +1,10 @@
 # qrz-bio-page
 my qrz biography page is [here](https://www.qrz.com/db/BG6LH#t_bio).
 
+## QRZ Biography Page Fundamentals
+
+QRZ.com provides a customizable biography page embedded within an iframe. Users cannot modify the iframe's inner HTML Document's basic structure, but can insert custom HTML snippets within the <body> tag and add custom CSS styles in the <head> section. All customizations must comply with the following rules.
+
 ## QRZ bio iframe inner HTML and CSS options rules
 
 ### QRZ Bio Content Rules:
