@@ -13,7 +13,9 @@ my qrz biography page is [here](https://www.qrz.com/db/BG6LH#t_bio).
 
 ## QRZ Biography Page Fundamentals
 
-QRZ.com provides a customizable biography page embedded within an iframe. Users cannot modify the iframe's inner HTML Document's basic structure, but can insert custom HTML snippets within the <body> tag and add custom CSS styles in the <head> section. All customizations must comply with the following rules.
+QRZ.com provides a customizable biography page embedded within an iframe. Users cannot modify the iframe's inner HTML Document's basic structure, but can insert custom HTML snippets within the `<body>` sectiob and add custom CSS styles in the `<head>` section. All customizations must comply with the following rules.
+
+---
 
 ## QRZ bio iframe inner HTML and CSS options rules
 
@@ -92,7 +94,7 @@ All reserved tags begin with **#qrz**. Do not use this prefix in your own tag de
 #### Images  
 If you are using a background image, note that you must pay careful attention to the image path, which is different at edit time versus run time. For example, if your callsign was XX1ABC, and you had a background image called "MyBackground.jpg", the edit time location of this file is:
 
-`http://www.qrz.com/hampages/xx1abc/MyBackground.jpg` **DO NOT USE88
+`http://www.qrz.com/hampages/xx1abc/MyBackground.jpg` **DO NOT USE**
 
 Instead, use the QRZ Cloud location of your image:
 
@@ -100,3 +102,30 @@ Instead, use the QRZ Cloud location of your image:
 
 The cloud location is based on the last letter of your call sign. In the example above, e.g. XX1ABC, the letter "**c**" is the last letter of the callsign and is the prefix used to locate your callsign's QRZ cloud folder. Note that the both the prefix ('**c**' in the example above) AND your call sign **must be in lower case**. The file name (e.g. 'MyBackground.jpg') can be upper, lower, or mixed case.
 
+---
+
+## Preliminary Summary of Bio Page's Compatibility
+
+Quoted from GAI's analysis, the compatibility rules for the QRZ bio embedded page can be summarized as follows:  
+
+- **Document Type & Formatting:**  
+  - The embedded page is strictly XHTML 1.0 Strict.  
+  - Custom content must comply with XHTML syntax rules (properly closed tags, quoted attributes, etc.).  
+
+- **Viewport & Responsiveness:**  
+  - The embedded page itself does not define a viewport meta tag; the viewport settings are controlled by the parent QRZ page.  
+  - Custom content should be designed to adapt to the iframe’s dimensions and external responsive rules.  
+
+- **Content Insertion:**  
+  - Custom HTML must be injected into predefined containers (such as the `biodata` div) without disrupting the existing DOM structure.  
+  - Scripts and inline event handlers are not allowed as per QRZ’s content policy.  
+
+- **Image & Link Handling:**  
+  - Images should use lazy loading attributes (`data-loading="lazy"` and `data-src`) to align with the existing lazy loading mechanism.  
+  - Links are automatically assigned a `target="_top"` attribute to ensure they open in the top-level window.  
+
+- **Browser Compatibility:**  
+  - The embedded page is generated dynamically using JavaScript and jQuery, ensuring proper rendering across major browsers.  
+  - Firefox-specific scroll adjustments are implemented to maintain consistent navigation behavior.  
+
+When designing iframe-based bio content, ensure that all HTML is **XHTML 1.0 Strict compliant**, script-free, and inserted within the designated `biodata` container. Additionally, leverage the existing lazy loading and link-handling mechanisms to maintain compatibility with the QRZ bio page structure.
