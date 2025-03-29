@@ -1,4 +1,4 @@
-/** 定义弹性布局大容器 **/
+/** BG6LH Custom CSS begin **/
 
 .bg6lh-flex-container {
     background-image: url(https://s3.amazonaws.com/files.qrz.com/h/bg6lh/background.jpg);
@@ -217,5 +217,6 @@ ul.social-icons li a:hover:nth-child(4) {
   color: #dd4b39;
 }
 
-/* end of BG6LH's CSS code */
 #t_bio.biodiv {background-color:#FFFFFF}
+
+/* end of BG6LH's Custom CSS*/
