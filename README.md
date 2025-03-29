@@ -1,5 +1,15 @@
-# qrz-bio-page
+# QRZ.com Bio Page Investigation
+
+This project is designed to investigate the ​web compatibility of QRZ.com's biography page, exploring the feasibility of a hybrid technology stack (HTML5/CSS3 vs legacy HTML4/CSS2) in QRZ.com scenarios.
+
+Selected code snippets have been isolated for use as GAI prompts.
+
 my qrz biography page is [here](https://www.qrz.com/db/BG6LH#t_bio).
+
+
+> **Important Notice:** You may reference this project's content at your own risk. No warranty is provided regarding the integrity of your QRZ.com data or published information.
+
+---
 
 ## QRZ Biography Page Fundamentals
 
