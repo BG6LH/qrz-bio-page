@@ -1,3 +1,5 @@
+> **Important Notice:** You may reference this project's content at your own risk. No warranty is provided regarding the integrity of your QRZ.com data or published information.
+
 ## QRZ Bio Iframe Simulator
 
 This project is designed to simulate the QRZ.com's biography page's iframe, helping user to try more modern front-end coding, such as HTML5/CSS3, in local.
@@ -48,8 +50,8 @@ I used those documents as promppt attachments.
 - Any `<script>`,`@import` codes in your custom snippets will be escape to invalid code.
 - Some additional CDN resources could be used in the html code, such as, I can use SVG icon @cdn.jsdelivr.net, this site is not in QRZ's granted list.
 
-> **Important Notice:** You may reference this project's content at your own risk. No warranty is provided regarding the integrity of your QRZ.com data or published information.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T01D9CDW)
 
 ---
 
