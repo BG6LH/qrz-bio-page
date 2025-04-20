@@ -60,7 +60,7 @@ http://www.clusterea.com/minicluster.htm
 https://maps.google.com/
 http://www.findu.com
 http://api.broadcastify.com/embed/player/
-www.reversebeacon.net/
+http://www.reversebeacon.net/
 http://www.blurtcast.com/
 http://www.lightirc.com/
 http://www.weatherlink.com/

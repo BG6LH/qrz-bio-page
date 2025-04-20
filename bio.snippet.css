@@ -1,0 +1,197 @@
+/** BG6LH Custom CSS begin **/
+
+
+/* overwritten qrz's bio iframe inner style */
+#t_bio.biodiv, #biodata {
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+   
+}
+
+/* common style of iframe inner html */
+section, body, html {
+    margin: 0;
+    padding: 0;
+
+    /* optimization for qrz iframe resizing wider, but not very ideal */
+    height: auto !important;
+    max-height: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ 
+p, ul, li, span, div{
+    font-size: 1rem;
+    line-height: 1.8em;
+}
+
+#bg6lh-content {
+    margin: 0.5em;
+    padding: 2em;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 1px 1px 3px rgba(172, 172, 172, 0.5);
+}
+
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+   /* optimization for qrz iframe resizing wider, but not very ideal */
+    will-change: layout;
+    backface-visibility: hidden;
+}
+
+h1{font-size: 3em; font-weight: bold; line-height: 1.2em;}
+h2{font-size: 2em; font-weight: bold;}
+h3{font-size: 1.25em;}
+ 
+h1{
+    background: linear-gradient(to top, blue, green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+ }
+ 
+/* award box */
+ 
+div.bg6lh-award-box {
+    border: 1px solid #ccc;
+}
+ 
+div.bg6lh-award-box:hover {
+    border: 1px solid #666;
+}
+ 
+div.bg6lh-award-box img {
+    width: 100%;
+    object-fit: cover;
+}
+ 
+ /* social icons */
+ 
+.social-link {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 10px 3px;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+.meta { background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/meta.svg"); }
+.x { background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/x.svg"); }
+.instagram { background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/instagram.svg"); }
+.github { background-image: url("https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/github.svg"); }
+.social-link:hover { transform: scale(1.1); }
+
+
+/** 
+  CSS masonry layout with flexbox 
+**/
+
+
+.container {
+    margin: 0;
+    padding:0;
+
+    max-width: 1550px; /* max screen width */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* add a hard break line for every column */
+.container::before, .container::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+}
+
+/* custom flex boxes **/
+section{
+    margin: 0;
+    padding: 0;
+    break-inside: avoid; /* keep in box */
+}
+
+
+/* layout 1： iframe < 1024px, 1 column, auto width */
+@media screen and (max-width: 1023px) {
+
+    /* 
+    a better init height to QRZ bio iframe.
+    it's just good for my content.
+    you may adjust this height for your content.
+    the same as below.
+    */
+    .container {
+        height: 13000px;
+    }
+
+    /* 1 column */
+    section{
+        max-width: 100%;
+    }
+
+}
+
+
+/** layout 2：1024 <= iframe < 1280px, 2 columns, auto width **/
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+
+    .container {
+        height: 5000px;
+    }
+
+    /* 2 columns */
+    section{
+        width: calc(100%/2);
+    }
+
+    section:nth-child(2n+1) { order: 1; }
+    section:nth-child(2n) { order: 2; }
+
+}
+
+
+/* layout 3：1028 <= iframe,  the max container width is defined to 1550px above, 3 columns, auto width */
+
+@media screen and (min-width: 1280px) {
+
+    .container {
+        height: 3800px;
+    }
+
+    /* 3 columns */
+    section{
+        width: calc(100%/3);
+    }
+
+    section:nth-child(3n+1) { order: 1; }
+    section:nth-child(3n+2) { order: 2; }
+    section:nth-child(3n)   { order: 3; }
+
+}
+
+/*** end of BG6LH's Custom CSS ***/

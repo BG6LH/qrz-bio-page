@@ -1,49 +1,65 @@
-## QRZ.com Bio Page Investigation
+## QRZ Bio Iframe Simulator
 
-This project is designed to investigate the ​web compatibility of QRZ.com's biography page, exploring the feasibility of a hybrid technology stack (HTML5/CSS3 vs legacy HTML4/CSS2) in QRZ.com scenarios.
+This project is designed to simulate the QRZ.com's biography page's iframe, helping user to try more modern front-end coding, such as HTML5/CSS3, in local.
 
-Selected code snippets have been isolated for use as GAI prompts.
+I'd write a HTML5 and pure CSS masonry layout, without any Javascipt, because QRZ.com forbid any user's script.  My qrz biography page is [here](https://www.qrz.com/db/BG6LH#t_bio).
 
-my qrz biography page is [here](https://www.qrz.com/db/BG6LH#t_bio).
 
+## How to Run it?
+
+To run this simulator, you should make a **server environment**, Don't open it directly from the File Explorer, or Finder. 
+Because the simulator need a JavaScript runtime to read and inject the HTML and CSS , and resize the iframe.
+I run it well in VS Code's light server.
+
+## Files in This Project
+
+- **[bio.simulator.html](bio.simulator.html)**
+
+The simulator of bio page, help codeing and testing in local.
+
+- **[snippet.inject.js](snippet.inject.js)**
+
+The script to inject and resize the simulator's iframe. It adheres totaly from the QRZ bio page's original JavaScript.
+Two variables is added to definite the snippets' path and name.
+I use the same Base64 funtion in original script to encode the snippets. 
+
+- **[snippet.bio.html](snippet.bio.html)**
+
+The bio page HTML snippet. You can code your content here snippet. you can write it in HTML5.
+**Only `<body>` elements** be allowed to use.
+
+- **[snippet.bio.css](snippet.bio.css)**
+
+The bio pages CSS style sheet. You can code your CSS in this snippet.
+
+
+### [prompt-reference](./prompt-reference/) folder
+
+I'd used generative AI tools to help detect QRZ's codes.
+In this folder, I'd extracted the bio iframe and it's inject JavaScript from QRZ's bio page.
+Also, I digest the key [QRZ Biography Page Fundamentals](./prompt-reference/QRZ-Biography-Page-Fundamentals.md).
+I used those documents as promppt attachments.
+**You are welcome to use those code to your AI by yourself.**
+
+## Coding Hints
+
+- QRZ's Bio page framework is a XHTML 4.0 document type. However, HTML5 works fine. they also have viewport definition, so I could try some responsive design.
+- [QRZ-Biography-Page-Fundamentals.md](./prompt-reference/QRZ-Biography-Page-Fundamentals.md) shold be read carefully.
+- Any `<script>`,`@import` codes in your custom snippets will be escape to invalid code.
+- Some additional CDN resources could be used in the html code, such as, I can use SVG icon @cdn.jsdelivr.net, this site is not in QRZ's granted list.
 
 > **Important Notice:** You may reference this project's content at your own risk. No warranty is provided regarding the integrity of your QRZ.com data or published information.
 
 
-## QRZ Biography Page Fundamentals
+---
 
-QRZ.com provides a customizable biography page embedded within an iframe. Users cannot modify the iframe's inner HTML Document's basic structure, but can insert custom HTML snippets within the <body> sectiob and add custom CSS styles in the <head> section. All customizations must comply with the following rules.
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-For more information please refer to [QRZ-Biography-Page-Fundamentals.md](QRZ-Biography-Page-Fundamentals.md)
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
-## Code Sinppets of this projects
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
-- **[bio.iframe.html](bio.iframe.html)**, The iframe part of the QRZ user's page. the JavaScript codes are using to inject user's custom HTML and CSS snippets.
-- **[bio.html](bio.html)**, user's HTML snippets.
-- **[bio.css](bio.css)**, user's CSS style sheet snippets.
-
-## Preliminary Summary of Bio Page's Compatibility
-
-Quoted from GAI's analysis, the compatibility rules for the QRZ bio embedded page can be summarized as follows:  
-
-- **Document Type & Formatting:**  
-  - The embedded page is strictly XHTML 1.0 Strict.  
-  - Custom content must comply with XHTML syntax rules (properly closed tags, quoted attributes, etc.).  
-
-- **Viewport & Responsiveness:**  
-  - The embedded page itself does not define a viewport meta tag; the viewport settings are controlled by the parent QRZ page.  
-  - Custom content should be designed to adapt to the iframe’s dimensions and external responsive rules.  
-
-- **Content Insertion:**  
-  - Custom HTML must be injected into predefined containers (such as the `biodata` div) without disrupting the existing DOM structure.  
-  - Scripts and inline event handlers are not allowed as per QRZ’s content policy.  
-
-- **Image & Link Handling:**  
-  - Images should use lazy loading attributes (`data-loading="lazy"` and `data-src`) to align with the existing lazy loading mechanism.  
-  - Links are automatically assigned a `target="_top"` attribute to ensure they open in the top-level window.  
-
-- **Browser Compatibility:**  
-  - The embedded page is generated dynamically using JavaScript and jQuery, ensuring proper rendering across major browsers.  
-  - Firefox-specific scroll adjustments are implemented to maintain consistent navigation behavior.  
-
-When designing iframe-based bio content, ensure that all HTML is **XHTML 1.0 Strict compliant**, script-free, and inserted within the designated `biodata` container. Additionally, leverage the existing lazy loading and link-handling mechanisms to maintain compatibility with the QRZ bio page structure.
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
